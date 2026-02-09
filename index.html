@@ -18,7 +18,7 @@
       --bg-main:#e9efe9;
       --bg-soft:#f6f9f6;
 
-      --accent:#b7a36b;
+      --accent:#b7a36b; /* Champagner */
       --accent-soft:rgba(183,163,107,0.22);
 
       --card:#ffffff;
@@ -97,6 +97,7 @@
       color:var(--ink);
     }
 
+    /* Mobile menu */
     .menu{display:none;}
     .menu summary{
       list-style:none;
@@ -141,6 +142,7 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px;}
 
+    /* Hero */
     .hero{
       margin-top:16px;
       border-radius:calc(var(--r) + 10px);
@@ -152,6 +154,15 @@
       position:relative;
       overflow:hidden;
     }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(520px 260px at 50% 0%, rgba(183,163,107,0.14), transparent 60%);
+      pointer-events:none;
+    }
+    .hero > *{position:relative; z-index:1;}
 
     .tag{
       display:inline-flex;
@@ -166,6 +177,7 @@
       text-transform:uppercase;
       font-size:12px;
     }
+    .tag svg{width:18px; height:18px;}
 
     .names{
       margin:14px 0 0;
@@ -177,7 +189,11 @@
       line-height:1.15;
       white-space:nowrap;
     }
+    @media (max-width: 560px){
+      .names{white-space:normal;}
+    }
 
+    /* NEU: Hochzeit klar sichtbar */
     .heroTitle{
       margin:12px 0 0;
       font-family:"Playfair Display", serif;
@@ -187,16 +203,49 @@
       font-size:clamp(18px, 2.2vw, 22px);
       color:var(--ink);
     }
+    .heroTitle span{
+      border-bottom:1px solid var(--accent-soft);
+      padding-bottom:2px;
+    }
 
     .heroMeta{
       margin-top:8px;
       color:var(--muted);
       font-size:16px;
     }
+    .heroMeta strong{
+      color:var(--ink);
+      border-bottom:1px solid var(--accent-soft);
+      padding-bottom:2px;
+    }
 
+    .divider{
+      margin:16px auto 10px;
+      width:190px;
+      height:1px;
+      background:linear-gradient(to right, transparent, rgba(183,163,107,0.80), transparent);
+    }
+
+    .countdownWrap{margin-top:10px;}
     .countLabel{margin:0 0 10px; font-size:13px; color:var(--muted);}
 
     .countdown{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+    .cd{
+      min-width:92px;
+      border:1px solid rgba(0,0,0,0.08);
+      border-radius:16px;
+      background:var(--bg-soft);
+      padding:12px 12px;
+      text-align:center;
+    }
+    .cd .n{font-size:18px; font-weight:600;}
+    .cd .l{font-size:11px; color:var(--muted); letter-spacing:0.10em; text-transform:uppercase;}
+
+    /* Sections */
+    .grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:16px;}
+    @media (min-width: 900px){
+      .grid{grid-template-columns:1.12fr 0.88fr;}
+    }
 
     .card{
       background:var(--card);
@@ -204,6 +253,79 @@
       border-radius:var(--r);
       padding:22px 20px;
       box-shadow:0 18px 36px rgba(0,0,0,0.08);
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:0.02em;
+      color:var(--ink);
+    }
+
+    .subhead{
+      display:inline-block;
+      margin-top:-2px;
+      padding-bottom:6px;
+      border-bottom:1px solid var(--accent-soft);
+    }
+
+    p{margin:0 0 10px;}
+    .muted{color:var(--muted);}
+
+    .kv{display:grid; grid-template-columns:120px 1fr; gap:10px 14px; margin-top:10px;}
+    .k{color:var(--muted); font-size:13px;}
+    .v{font-size:14px;}
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center;}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:14px;
+      padding:12px 16px;
+      border:1px solid rgba(0,0,0,0.10);
+      font-weight:500;
+      font-size:14px;
+      min-width:180px;
+      cursor:pointer;
+      transition: transform 180ms ease, filter 180ms ease;
+      text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.02); transform: translateY(-1px);}
+
+    .btn.primary{
+      background:linear-gradient(180deg, #c9b57f, #b7a36b);
+      border-color:rgba(183,163,107,0.55);
+      color:#1b1a16;
+      box-shadow:0 14px 34px rgba(183,163,107,0.18);
+    }
+
+    .textlink{
+      color:var(--accent);
+      font-weight:500;
+    }
+    .textlink:hover{text-decoration:underline;}
+
+    .divider2{
+      height:1px;
+      background:linear-gradient(to right, transparent, rgba(0,0,0,0.10), transparent);
+      margin:14px 0;
+    }
+
+    .two{display:grid; grid-template-columns:1fr; gap:14px; align-items:start;}
+    @media (min-width: 900px){
+      .two{grid-template-columns:1fr 1fr;}
+    }
+
+    iframe{
+      width:100%;
+      height:280px;
+      border:0;
+      border-radius:16px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.10);
     }
 
     footer{
@@ -214,31 +336,33 @@
       color:var(--muted);
       font-size:12px;
     }
+
+    .section{scroll-margin-top:110px;}
   </style>
 </head>
 
 <body>
   <header>
     <div class="nav">
-      <div class="brand">Aida Beširović & Elmar Žiko</div>
+      <div class="brand">Aida Beširović &amp; Elmar Žiko</div>
 
-      <nav class="links">
+      <nav class="links" aria-label="Navigation">
         <a href="#details">Detalji</a>
-        <a href="#antwort">Potvrda dolaska</a>
+        <a href="#antwort">Potvrda</a>
         <a href="#location">Lokacija</a>
-        <a href="#park">Parking i uspinjača</a>
-        <a href="#faq">Česta pitanja</a>
+        <a href="#park">Parking &amp; uspinjača</a>
+        <a href="#faq">FAQ</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
       <details class="menu">
         <summary>Meni</summary>
-        <div class="menuPanel">
+        <div class="menuPanel" role="menu" aria-label="Navigation">
           <a href="#details">Detalji</a>
-          <a href="#antwort">Potvrda dolaska</a>
+          <a href="#antwort">Potvrda</a>
           <a href="#location">Lokacija</a>
-          <a href="#park">Parking i uspinjača</a>
-          <a href="#faq">Česta pitanja</a>
+          <a href="#park">Parking &amp; uspinjača</a>
+          <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
         </div>
       </details>
@@ -247,93 +371,166 @@
 
   <main class="wrap">
     <section class="hero" id="top">
-      <div class="tag">
+      <div class="tag" aria-label="Poziv na vjenčanje">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="9.6" cy="13.2" r="5.2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14.4" cy="11.2" r="5.2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M14.4 3.2l2.1 2.2-2.1 2.2-2.1-2.2 2.1-2.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12.8 5.4h3.2M14.4 3.2v4.4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.85"/>
+        </svg>
         <span>Poziv na vjenčanje</span>
       </div>
 
-      <h1 class="names">AIDA BEŠIROVIĆ & ELMAR ŽIKO</h1>
+      <h1 class="names">AIDA BEŠIROVIĆ &amp; ELMAR ŽIKO</h1>
+
       <div class="heroTitle"><span>Poziv na vjenčanje</span></div>
+
+      <div class="divider" aria-hidden="true"></div>
 
       <p class="heroMeta"><strong>Subota, 27.06.2026</strong> · Luzern · Art Deco Hotel Montana</p>
 
-      <p class="countLabel">Do velikog dana preostalo je</p>
-      <div class="countdown">
-        <div class="cd"><div class="n" id="cdD">--</div><div class="l">Dana</div></div>
-        <div class="cd"><div class="n" id="cdH">--</div><div class="l">Sati</div></div>
-        <div class="cd"><div class="n" id="cdM">--</div><div class="l">Min</div></div>
-        <div class="cd"><div class="n" id="cdS">--</div><div class="l">Sek</div></div>
+      <div class="countdownWrap" aria-label="Odbrojavanje do vjenčanja">
+        <p class="countLabel">Do velikog dana ostalo je još</p>
+        <div class="countdown">
+          <div class="cd"><div class="n" id="cdD">--</div><div class="l">Dana</div></div>
+          <div class="cd"><div class="n" id="cdH">--</div><div class="l">Sati</div></div>
+          <div class="cd"><div class="n" id="cdM">--</div><div class="l">Min</div></div>
+          <div class="cd"><div class="n" id="cdS">--</div><div class="l">Sek</div></div>
+        </div>
       </div>
     </section>
 
-    <section class="card" id="details">
-      <h2>Detalji</h2>
-      <p>Ovdje ćete pronaći sve informacije o svadbenoj proslavi.</p>
+    <div class="grid">
+      <section class="card section" id="details">
+        <h2><span class="subhead">Detalji</span></h2>
+        <p class="muted">Ovdje ćete pronaći sve informacije o svadbenoj proslavi.</p>
 
-      <div class="kv">
-        <div class="k">Datum</div><div class="v"><strong>Subota, 27.06.2026</strong></div>
-        <div class="k">Mjesto</div><div class="v">Art Deco Hotel Montana, Adligenswilerstrasse 22, 6002 Luzern</div>
-        <div class="k">Početak</div><div class="v">Aperitiv od cca 17.00</div>
-        <div class="k">Večera</div><div class="v">cca 19.00</div>
-        <div class="k">Zabava</div><div class="v">od cca 22.00</div>
+        <div class="kv" aria-label="Detalji">
+          <div class="k">Datum</div><div class="v"><strong>Subota, 27.06.2026</strong></div>
+          <div class="k">Mjesto</div><div class="v">Art Deco Hotel Montana, Adligenswilerstrasse 22, 6002 Luzern</div>
+          <div class="k">Početak</div><div class="v">Aperitiv od cca 17.00</div>
+          <div class="k">Večera</div><div class="v">cca 19.00</div>
+          <div class="k">Zabava</div><div class="v">od cca 22.00</div>
+        </div>
+
+        <div class="divider2" aria-hidden="true"></div>
+
+        <h2><span class="subhead">Raspored</span></h2>
+        <div class="kv" aria-label="Raspored">
+          <div class="k">17.00</div><div class="v">Aperitiv</div>
+          <div class="k">17.30</div><div class="v">Prelazak na večeru</div>
+          <div class="k">19.00</div><div class="v">Večera</div>
+          <div class="k">22.00</div><div class="v">Zabava</div>
+        </div>
+      </section>
+
+      <aside>
+        <section class="card section" id="antwort">
+          <h2><span class="subhead">Potvrda</span></h2>
+          <p>Molimo potvrdu dolaska ili nedolaska do <strong>30.04.2026</strong>.</p>
+          <p class="muted">Pratnja je navedena imenom u pozivnici.</p>
+
+          <div class="cta">
+            <a class="btn primary" href="https://forms.gle/Y2LeHdSsWZ6bYEG59" target="_blank" rel="noopener">Potvrda dolaska</a>
+          </div>
+
+          <p class="muted" style="margin-top:10px; font-size:13px;">
+            Ako je potrebno: <a class="textlink" href="mailto:elmarzaidab@gmail.com?subject=Potvrda%2027.06.2026&body=Ime:%0D%0ABroj%20odraslih:%0D%0ABroj%20djece:%0D%0ADolazim%20ili%20ne%20dolazim:%0D%0AAllergije/želje:%0D%0A">odgovor putem e-maila</a>
+          </p>
+        </section>
+
+        <section class="card" style="margin-top:14px;">
+          <h2><span class="subhead">Pokloni</span></h2>
+          <p>Vaše prisustvo je za nas najljepši poklon.</p>
+          <p class="muted">Svaka dodatna pažnja je naravno dobrovoljna.</p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="card section" id="location" style="margin-top:14px;">
+      <h2><span class="subhead">Lokacija</span></h2>
+      <div class="two" style="margin-top:12px;">
+        <div>
+          <p><strong>Art Deco Hotel Montana</strong><br>
+            Adligenswilerstrasse 22<br>
+            6002 Luzern</p>
+
+          <p class="muted">
+            Noćenje: Link za sobe sa popustom u Hotelu Montana ćemo uskoro ovdje objaviti.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="https://maps.google.com/?q=Art%20Deco%20Hotel%20Montana%20Luzern" target="_blank" rel="noopener">Otvori u Google</a>
+          </div>
+        </div>
+
+        <div>
+          <iframe title="Mapa Hotel Montana"
+                  src="https://www.google.com/maps?q=Art%20Deco%20Hotel%20Montana%20Luzern&output=embed"
+                  loading="lazy"></iframe>
+        </div>
       </div>
     </section>
 
-    <section class="card" id="antwort">
-      <h2>Potvrda dolaska</h2>
-      <p>Molimo potvrdu do <strong>30.04.2026</strong>.</p>
+    <section class="card section" id="park" style="margin-top:14px;">
+      <h2><span class="subhead">Parking &amp; uspinjača</span></h2>
+      <div class="two" style="margin-top:12px;">
+        <div>
+          <p><strong>Parkhaus Casino Palace</strong><br>
+            Haldenstrasse 6<br>
+            6006 Luzern</p>
 
-      <a class="btn primary" href="https://forms.gle/Y2LeHdSsWZ6bYEG59" target="_blank">Potvrdi dolazak</a>
+          <p class="muted" style="margin-top:10px;">
+            Tamo pređete Haldenstrasse i idete u smjeru kretanja autobusa do trga sa fontanom.
+            Iza fontane je ulaz u uspinjaču (oko 100 m pješke).
+            Uspinjača vas za samo <strong>60 sekundi</strong> vodi direktno u hotelski lobi.
+          </p>
 
-      <p style="margin-top:10px;">
-        Ako je potrebno: <a href="mailto:elmarzaidab@gmail.com?subject=Potvrda%2027.06.2026">odgovoriti putem e-maila</a>
-      </p>
+          <div class="cta">
+            <a class="btn primary" href="https://maps.google.com/?q=Parkhaus%20Casino%20Palace%20Luzern" target="_blank" rel="noopener">Otvori u Google</a>
+          </div>
+        </div>
+
+        <div>
+          <iframe title="Mapa Parkhaus Casino Palace"
+                  src="https://www.google.com/maps?q=Parkhaus%20Casino%20Palace%20Luzern&output=embed"
+                  loading="lazy"></iframe>
+        </div>
+      </div>
     </section>
 
-    <section class="card" id="location">
-      <h2>Lokacija</h2>
-      <p><strong>Art Deco Hotel Montana</strong><br>
-         Adligenswilerstrasse 22<br>
-         6002 Luzern</p>
-
-      <a class="btn primary" href="https://maps.google.com/?q=Art%20Deco%20Hotel%20Montana%20Luzern" target="_blank">Otvori u Google Maps</a>
-    </section>
-
-    <section class="card" id="park">
-      <h2>Parking i uspinjača</h2>
-      <p><strong>Parkhaus Casino Palace</strong><br>
-         Haldenstrasse 6<br>
-         6006 Luzern</p>
-
-      <p>
-        Uspinjača vas za <strong>60 sekundi</strong> vozi direktno u hotelski lobi.
-      </p>
-
-      <a class="btn primary" href="https://maps.google.com/?q=Parkhaus%20Casino%20Palace%20Luzern" target="_blank">Otvori u Google Maps</a>
-    </section>
-
-    <section class="card" id="faq">
-      <h2>Česta pitanja</h2>
+    <section class="card section" id="faq" style="margin-top:14px;">
+      <h2><span class="subhead">FAQ</span></h2>
 
       <p><strong>Da li djeca mogu doći?</strong><br>
-      Da, djeca su dobrodošla.</p>
+        Da, djeca su dobrodošla.</p>
+
+      <p><strong>Pratnja?</strong><br>
+        Pratnja je navedena imenom u pozivnici.</p>
+
+      <p><strong>Hrana, alergije, želje?</strong><br>
+        Molimo navedite direktno u potvrdi. Uzet ćemo u obzir koliko god bude moguće.</p>
 
       <p><strong>Dresscode?</strong><br>
-      <strong>Formalno</strong><br>
-      Dame u večernjim haljinama, gospoda u odijelima.</p>
+        <strong>Formalno</strong><br>
+        Dame u večernjim haljinama, gospoda u odijelu ili košulji.</p>
+
+      <p><strong>Noćenje?</strong><br>
+        Ko želi prenoćiti u Hotelu Montana ili u blizini, najbolje je rezervisati ranije. Link za sobe sa popustom u Hotelu Montana ćemo uskoro ovdje objaviti.</p>
     </section>
 
-    <section class="card" id="kontakt">
-      <h2>Kontakt</h2>
-      <p>Za pitanja nam se slobodno javite.</p>
+    <section class="card section" id="kontakt" style="margin-top:14px;">
+      <h2><span class="subhead">Kontakt</span></h2>
+      <p class="muted">Ako imate pitanja ili nejasnoća, javite nam se direktno.</p>
 
-      <div class="kv">
-        <div class="k">WhatsApp / SMS</div><div class="v"><a href="tel:+41763320726">+41 76 332 07 26</a></div>
-        <div class="k">E-Mail</div><div class="v"><a href="mailto:elmarzaidab@gmail.com">elmarzaidab@gmail.com</a></div>
+      <div class="kv" style="margin-top:10px;">
+        <div class="k">WhatsApp / SMS</div><div class="v"><a class="textlink" href="tel:+41763320726">+41 76 332 07 26</a></div>
+        <div class="k">E-mail</div><div class="v"><a class="textlink" href="mailto:elmarzaidab@gmail.com">elmarzaidab@gmail.com</a></div>
       </div>
     </section>
 
     <footer>
-      © 2026 Aida Beširović & Elmar Žiko
+      © 2026 Aida Beširović &amp; Elmar Žiko
     </footer>
   </main>
 
@@ -345,6 +542,7 @@
       function tick(){
         const now = new Date();
         let diff = target.getTime() - now.getTime();
+        if (!isFinite(diff)) return;
         if (diff < 0) diff = 0;
 
         const totalSec = Math.floor(diff / 1000);
