@@ -407,19 +407,19 @@
         <div class="kv" aria-label="Detalji">
           <div class="k">Datum</div><div class="v"><strong>Subota, 27.06.2026</strong></div>
           <div class="k">Mjesto</div><div class="v">Art Deco Hotel Montana, Adligenswilerstrasse 22, 6002 Luzern</div>
-          <div class="k">Početak</div><div class="v">Aperitiv od oko 17.00</div>
-          <div class="k">Večera</div><div class="v">oko 19.00</div>
-          <div class="k">Zabava</div><div class="v">od oko 22.00</div>
+          <div class="k">Početak</div><div class="v">Aperitiv od cca <strong>17.30</strong></div>
+          <div class="k">Večera</div><div class="v">cca <strong>19.00</strong></div>
+          <div class="k">Zabava</div><div class="v">od cca <strong>22.00</strong></div>
         </div>
 
         <div class="divider2" aria-hidden="true"></div>
 
         <h2><span class="subhead">Raspored</span></h2>
         <div class="kv" aria-label="Raspored">
-          <div class="k">17.00</div><div class="v">Aperitiv</div>
-          <div class="k">18.30</div><div class="v">Prelazak na večeru</div>
+          <div class="k">17.30</div><div class="v">Aperitiv i dolazak gostiju</div>
+          <div class="k">18.30</div><div class="v">Prelazak u salu za večeru</div>
           <div class="k">19.00</div><div class="v">Večera</div>
-          <div class="k">22.00</div><div class="v">Zabava</div>
+          <div class="k">22.00</div><div class="v">Početak zabave</div>
         </div>
       </section>
 
@@ -434,7 +434,7 @@
           </div>
 
           <p class="muted" style="margin-top:10px; font-size:13px;">
-            Ako je potrebno: <a class="textlink" href="mailto:elmarzaidab@gmail.com?subject=Potvrda%2027.06.2026&body=Ime:%0D%0ABroj%20odraslih:%0D%0ABroj%20djece:%0D%0ADolazim%20ili%20ne%20dolazim:%0D%0AAllergije/želje:%0D%0A">odgovor putem e-maila</a>
+            Ako je potrebno: <a class="textlink" href="mailto:elmarzaidab@gmail.com?subject=Potvrda%2027.06.2026&body=Ime:%0D%0ABroj%20odraslih:%0D%0ABroj%20djece:%0D%0ADolazim%20ili%20ne%20dolazim:%0D%0AAlergije/zelje:%0D%0A">odgovor putem e-maila</a>
           </p>
         </section>
 
@@ -535,7 +535,9 @@
 
   <script>
     (function(){
-      const target = new Date('2026-06-27T17:00:00');
+      // Start der Svadba: 27.06.2026 um 17:30
+      const target = new Date('2026-06-27T17:30:00');
+
       function pad(n){ return String(n).padStart(2,'0'); }
 
       function tick(){
